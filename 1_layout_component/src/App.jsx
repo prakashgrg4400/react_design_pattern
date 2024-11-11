@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { SplitScreen } from "./components/SplitScreen";
 
+const LeftComponent = () => {
+    return (
+        <h1 style={{ backgroundColor: "red", color: "#fff" }}>
+            Left Side Component
+        </h1>
+    );
+};
+
+const RightComponent = () => {
+    return (
+        <h1 style={{ backgroundColor: "black", color: "white" }}>
+            Right Side Component
+        </h1>
+    );
+};
+
+// Splitscreen is a "layout component" , which focus on organizing other components within a web page . It is accepting two components, as a props, and we are using those props(components) inside splitscreen to fit it in a reusable design layout. This type of component is flexible, reusable and easy to update, without affecting other components.
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    return <SplitScreen Left={LeftComponent} Right={RightComponent} />;
 }
 
-export default App
+export default App;
+
+//========================== layout components=======================
+// --> Those components which is used for organizing other components witin a page are known as layout components. Some of the layout components are "split screen" , "lists" , "modals" .  Above code is the example of "split screen" layout component
