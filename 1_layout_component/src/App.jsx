@@ -3,7 +3,7 @@ import { SplitScreen } from "./components/SplitScreen";
 
 const LeftComponent = () => {
     return (
-        <h1 style={{ backgroundColor: "red", color: "#fff" }}>
+        <h1 style={{ backgroundColor: "red", color: "#fff", padding: "1rem" }}>
             Left Side Component
         </h1>
     );
@@ -11,7 +11,13 @@ const LeftComponent = () => {
 
 const RightComponent = () => {
     return (
-        <h1 style={{ backgroundColor: "black", color: "white" }}>
+        <h1
+            style={{
+                backgroundColor: "black",
+                color: "white",
+                padding: "1rem",
+            }}
+        >
             Right Side Component
         </h1>
     );

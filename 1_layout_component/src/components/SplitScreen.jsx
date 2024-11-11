@@ -11,6 +11,7 @@ const Panel = styled.div`
     flex: 1;
 `;
 
+//!==> below line 15 comments is to ignore the error created by eslint , which says we need to define the type for the props which is passed as a component. You can either define it using "prop types" module or ignore it using eslint quik fixes .
 // eslint-disable-next-line react/prop-types
 export const SplitScreen = ({ Left, Right }) => {
     // return (
