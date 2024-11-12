@@ -1,15 +1,17 @@
+/* eslint-disable react/prop-types */
 import "./App.css";
 import { SplitScreen } from "./components/SplitScreen";
 
-const LeftComponent = () => {
+const LeftComponent = ({ title }) => {
     return (
         <h1 style={{ backgroundColor: "red", color: "#fff", padding: "1rem" }}>
-            Left Side Component
+            {/* Left Side Component */}
+            {title}
         </h1>
     );
 };
 
-const RightComponent = () => {
+const RightComponent = ({ title }) => {
     return (
         <h1
             style={{
@@ -18,14 +20,23 @@ const RightComponent = () => {
                 padding: "1rem",
             }}
         >
-            Right Side Component
+            {/* Right Side Component */}
+            {title}
         </h1>
     );
 };
 
 // Splitscreen is a "layout component" , which focus on organizing other components within a web page . It is accepting two components, as a props, and we are using those props(components) inside splitscreen to fit it in a reusable design layout. This type of component is flexible, reusable and easy to update, without affecting other components.
 function App() {
-    return <SplitScreen Left={LeftComponent} Right={RightComponent} />;
+    // return <SplitScreen Left={LeftComponent} Right={RightComponent} />;
+    // !======================= better way of sending components ======================
+    // this way of sending component inside "layout component" is better as we can easily pass the props if we need to , to the children components.
+    return (
+        <SplitScreen leftHandWidth={1} rightHandWidth={3}>
+            <LeftComponent title={"Left side"} />
+            <RightComponent title={"Right Side"} />
+        </SplitScreen>
+    );
 }
 
 export default App;
