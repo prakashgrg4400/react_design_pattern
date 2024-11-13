@@ -1,6 +1,10 @@
 /* eslint-disable react/prop-types */
 import "./App.css";
+import { RegularList } from "./components/List/RegularList";
 import { SplitScreen } from "./components/SplitScreen";
+import { authors } from "./data/author";
+import { SmallAuthorsList } from "./components/authors/SmallAuthorsList";
+import { LargeAuthorsList } from "./components/authors/LargeAuthorsList";
 
 const LeftComponent = ({ title }) => {
     return (
@@ -31,11 +35,28 @@ function App() {
     // return <SplitScreen Left={LeftComponent} Right={RightComponent} />;
     // !======================= better way of sending components ======================
     // this way of sending component inside "layout component" is better as we can easily pass the props if we need to , to the children components.
+    // return (
+    //     <SplitScreen leftHandWidth={1} rightHandWidth={3}>
+    //         <LeftComponent title={"Left side"} />
+    //         <RightComponent title={"Right Side"} />
+    //     </SplitScreen>
+    // );
+
+    //!============================ List layout component below ================================
+    //!==> So this is how we create and use a reusable , List layout component  to organize other components .
     return (
-        <SplitScreen leftHandWidth={1} rightHandWidth={3}>
-            <LeftComponent title={"Left side"} />
-            <RightComponent title={"Right Side"} />
-        </SplitScreen>
+        <>
+            <RegularList
+                items={authors}
+                sourceName={"author"}
+                ItemComponent={SmallAuthorsList}
+            />
+            <RegularList
+                items={authors}
+                sourceName={"author"}
+                ItemComponent={LargeAuthorsList}
+            />
+        </>
     );
 }
 
