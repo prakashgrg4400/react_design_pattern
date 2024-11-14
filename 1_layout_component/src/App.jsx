@@ -5,6 +5,10 @@ import { SplitScreen } from "./components/SplitScreen";
 import { authors } from "./data/author";
 import { SmallAuthorsList } from "./components/authors/SmallAuthorsList";
 import { LargeAuthorsList } from "./components/authors/LargeAuthorsList";
+import { books } from "./data/book";
+import { SmallBooksList } from "./components/books/SmallBooksList";
+import { LargeBooksList } from "./components/books/LargeBooksList";
+import { NumberedList } from "./components/List/NumberedList";
 
 const LeftComponent = ({ title }) => {
     return (
@@ -44,17 +48,39 @@ function App() {
 
     //!============================ List layout component below ================================
     //!==> So this is how we create and use a reusable , List layout component  to organize other components .
+    //===================== for author ==========================
+    // return (
+    //     <>
+    //         <RegularList
+    //             items={authors}
+    //             sourceName={"author"}
+    //             ItemComponent={SmallAuthorsList}
+    //         />
+    //         <RegularList
+    //             items={authors}
+    //             sourceName={"author"}
+    //             ItemComponent={LargeAuthorsList}
+    //         />
+    //     </>
+    // );
+
+    // =========================== for books ===========================
     return (
         <>
             <RegularList
-                items={authors}
-                sourceName={"author"}
-                ItemComponent={SmallAuthorsList}
+                items={books}
+                sourceName={"book"}
+                ItemComponent={SmallBooksList}
             />
-            <RegularList
-                items={authors}
-                sourceName={"author"}
-                ItemComponent={LargeAuthorsList}
+            {/* <RegularList
+                items={books}
+                sourceName={"book"}
+                ItemComponent={LargeBooksList}
+            /> */}
+            <NumberedList
+                items={books}
+                sourceName={"book"}
+                ItemComponent={LargeBooksList}
             />
         </>
     );

@@ -6,13 +6,13 @@ export const books = [
         price: 12.99,
     },
     {
-        name: "To kill a mocking  bird",
+        name: "Black Water",
         pages: 281,
         title: "Harper Lee",
         price: 12.99,
     },
     {
-        name: "To kill a mocking  bird",
+        name: "Gautam Buddha",
         pages: 281,
         title: "Harper Lee",
         price: 12.99,
