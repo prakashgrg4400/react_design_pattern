@@ -9,6 +9,7 @@ import { books } from "./data/book";
 import { SmallBooksList } from "./components/books/SmallBooksList";
 import { LargeBooksList } from "./components/books/LargeBooksList";
 import { NumberedList } from "./components/List/NumberedList";
+import { Modal } from "./components/Modal";
 
 const LeftComponent = ({ title }) => {
     return (
@@ -65,23 +66,32 @@ function App() {
     // );
 
     // =========================== for books ===========================
+    // return (
+    //     <>
+    //         <RegularList
+    //             items={books}
+    //             sourceName={"book"}
+    //             ItemComponent={SmallBooksList}
+    //         />
+    //         {/* <RegularList
+    //             items={books}
+    //             sourceName={"book"}
+    //             ItemComponent={LargeBooksList}
+    //         /> */}
+    //         <NumberedList
+    //             items={books}
+    //             sourceName={"book"}
+    //             ItemComponent={LargeBooksList}
+    //         />
+    //     </>
+    // );
+
+    //!================================ Modal Layout Component =======================
     return (
         <>
-            <RegularList
-                items={books}
-                sourceName={"book"}
-                ItemComponent={SmallBooksList}
-            />
-            {/* <RegularList
-                items={books}
-                sourceName={"book"}
-                ItemComponent={LargeBooksList}
-            /> */}
-            <NumberedList
-                items={books}
-                sourceName={"book"}
-                ItemComponent={LargeBooksList}
-            />
+            <Modal>
+                <LargeBooksList book={books[1]} />
+            </Modal>
         </>
     );
 }

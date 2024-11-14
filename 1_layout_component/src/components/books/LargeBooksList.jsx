@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 export const LargeBooksList = ({ book }) => {
+    console.log(book);
     const { name, title, price, pages } = book;
     return (
         <>
