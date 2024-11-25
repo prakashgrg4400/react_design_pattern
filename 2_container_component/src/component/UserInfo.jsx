@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 export const UserInfo = ({ user }) => {
+    console.log(user);
     const { name, age, country, books } = user || {};
     return user ? (
         <>

@@ -6,6 +6,17 @@ const express = require("express");
 
 const app = express();
 
+const cors = require("cors");
+
+// const corsOptions = {
+//     origin: "http://localhost:5173",
+// };
+
+app.use(
+    cors({
+        origin: "http://localhost:5173",
+    })
+);
 app.use(express.json());
 
 let currentUser = {
@@ -57,6 +68,7 @@ let books = [
     },
 ];
 
+// app.get("/current-user", cors(corsOptions), (req, res) => {
 app.get("/current-user", (req, res) => {
     res.json(currentUser);
 });
